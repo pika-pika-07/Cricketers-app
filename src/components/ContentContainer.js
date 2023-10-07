@@ -9,7 +9,7 @@ const ContentContainer = () => {
   return (
     <div className="flex p-6 m-6  flex-wrap">
       {players.map((player) => {
-        return <PlayerCard />;
+        return <PlayerCard key={player.id} playerInfo={player} />;
       })}
     </div>
   );
