@@ -4,33 +4,13 @@ import PlayerCard from "./PlayerCard";
 
 const ContentContainer = () => {
   const players = useFetchPlayers();
+
+  if (players.length === 0) return <div>Loading</div>;
   return (
     <div className="flex p-6 m-6  flex-wrap">
-      <PlayerCard />
-      <PlayerCard />
-      <PlayerCard />
-      <PlayerCard />
-      <PlayerCard />
-      <PlayerCard />
-      <PlayerCard />
-      <PlayerCard />
-      <PlayerCard />
-      <PlayerCard />
-      <PlayerCard />
-      <PlayerCard />
-      <PlayerCard />
-      <PlayerCard />
-      <PlayerCard />
-      <PlayerCard />
-      <PlayerCard />
-      <PlayerCard />
-      <PlayerCard />
-      <PlayerCard />
-      <PlayerCard />
-      <PlayerCard />
-      <PlayerCard />
-      <PlayerCard />
-      <PlayerCard />
+      {players.map((player) => {
+        return <PlayerCard />;
+      })}
     </div>
   );
 };
