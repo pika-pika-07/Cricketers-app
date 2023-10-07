@@ -1,7 +1,7 @@
 import React from "react";
 
 const Header = () => {
-  return <div className="p-2 m-2 bg-gray-300">Cricketer's app</div>;
+  return <div className="p-5 m-5 bg-gray-300">Cricketer's app</div>;
 };
 
 export default Header;
