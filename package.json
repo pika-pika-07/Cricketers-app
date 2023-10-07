@@ -1,0 +1,19 @@
+{
+  "name": "cricketers-app",
+  "version": "1.0.0",
+  "description": "Cricketer's app",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pika-pika-07/Cricketers-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pika-pika-07/Cricketers-app/issues"
+  },
+  "homepage": "https://github.com/pika-pika-07/Cricketers-app#readme"
+}
