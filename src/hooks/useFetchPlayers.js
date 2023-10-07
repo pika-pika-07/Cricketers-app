@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import getPlayers from "../utils/helper";
+import { getPlayers } from "../utils/helper";
 
 const useFetchPlayers = () => {
   const [players, setPlayers] = useState([]);

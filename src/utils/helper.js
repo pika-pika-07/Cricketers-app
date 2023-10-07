@@ -1,6 +1,6 @@
 import data from "./players";
 
-const getPlayers = (args) => {
+export const getPlayers = (args) => {
   return Promise.resolve(
     data
       .sort((a, b) => {
@@ -17,4 +17,18 @@ const getPlayers = (args) => {
   );
 };
 
-export default getPlayers;
+export const getYearsBetweenDates = (input) => {
+  if (!input) return 0;
+
+  // Convert input to Date
+  const date = new Date(input);
+
+  // Current Date
+  const currentDate = new Date();
+
+  const timeDiff = currentDate.getTime() - date.getTime();
+  const days = timeDiff / (1000 * 3600 * 24);
+  const yearsDiff = Math.abs(Math.round(days / 365));
+  console.log(yearsDiff);
+  return yearsDiff;
+};
