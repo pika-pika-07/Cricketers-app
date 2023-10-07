@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/pika-pika-07/Cricketers-app/issues"
   },
-  "homepage": "https://github.com/pika-pika-07/Cricketers-app#readme"
+  "homepage": "https://github.com/pika-pika-07/Cricketers-app#readme",
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  }
 }
