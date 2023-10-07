@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import Body from "./src/components/Body";
 import Header from "./src/components/Header";
 
-const heading = <h1> Hello jsx </h1>;
 const AppLayout = () => {
   return (
     <>
