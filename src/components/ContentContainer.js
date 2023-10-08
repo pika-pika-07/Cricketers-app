@@ -2,19 +2,24 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import useFetchPlayers from "../hooks/useFetchPlayers";
 import PlayerCard from "./PlayerCard";
-import { getPlayers, sortPlayers } from "../utils/helper";
+import { getPlayers, sortPlayers, filterPlayersByType } from "../utils/helper";
 
 const ContentContainer = () => {
   const [players, setPlayers] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const sortBy = searchParams.get("sort");
+  const filterBy = searchParams.get("filter");
 
   const filterPlayers = (players) => {
     if (sortBy) {
       const newList = [...players];
       const sortedPlayers = sortPlayers(newList, sortBy);
-      debugger;
       setPlayers(sortedPlayers);
+    }
+    if (filterBy) {
+      // const newList = [...players];
+      const filteredPlayers = filterPlayersByType(players, filterBy);
+      setPlayers(filteredPlayers);
     }
   };
   const fetchCricketers = async () => {
@@ -28,7 +33,7 @@ const ContentContainer = () => {
 
   useEffect(() => {
     filterPlayers(players);
-  }, [sortBy]);
+  }, [sortBy, filterBy]);
 
   if (players.length === 0) return <div>Loading</div>;
   return (

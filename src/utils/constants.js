@@ -1,6 +1,6 @@
-const SORT_OPTIONS = [
+export const SORT_OPTIONS = [
   {
-    id: "_2",
+    id: "_1",
     label: "Sort By",
     value: "",
   },
@@ -21,4 +21,25 @@ const SORT_OPTIONS = [
   },
 ];
 
-export default SORT_OPTIONS;
+export const FILTER_OPTIONS = [
+  {
+    id: "_1",
+    label: "Filter By",
+    value: "",
+  },
+  {
+    id: "_2",
+    label: "Bowler",
+    value: "bowler",
+  },
+  {
+    id: "_3",
+    label: "All Rounder",
+    value: "allRounder",
+  },
+  {
+    id: "_4",
+    label: "Batsman",
+    value: "batsman",
+  },
+];

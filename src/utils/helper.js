@@ -46,3 +46,8 @@ export const sortPlayers = (players, sortBy) => {
 
   return newArray;
 };
+
+export const filterPlayersByType = (players, filterBy) => {
+  const newArray = players.filter((player) => player.type === filterBy);
+  return newArray;
+};
