@@ -32,3 +32,17 @@ export const getYearsBetweenDates = (input) => {
   console.log(yearsDiff);
   return yearsDiff;
 };
+
+export const sortPlayers = (players, sortBy) => {
+  const newArray = players.sort((a, b) => {
+    if (sortBy === "name") {
+      return a.name.localeCompare(b.name);
+    } else if (sortBy === "rank") {
+      return a.points - b.points;
+    } else if (sortBy === "age") {
+      return b.dob - a.dob;
+    }
+  });
+
+  return newArray;
+};
