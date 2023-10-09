@@ -10,10 +10,10 @@ const Header = () => {
           src="https://t3.ftcdn.net/jpg/02/02/27/68/240_F_202276862_Bl20MC12CxPZAr781Sctf37otHIwSvBU.jpg"
         />
       </Link>
-      <div className="p-10 font-bold text-center align-middle">
+      <h4 className="p-10 font-bold text-center align-middle">
         {" "}
         Cricketer's app
-      </div>
+      </h4>
     </div>
   );
 };
