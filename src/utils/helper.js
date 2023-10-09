@@ -51,3 +51,8 @@ export const filterPlayersByType = (players, filterBy) => {
   const newArray = players.filter((player) => player.type === filterBy);
   return newArray;
 };
+
+export const filterPlayersByName = (players, filterBy) => {
+  const newArray = players.filter((player) => player.name.includes(filterBy));
+  return newArray;
+};

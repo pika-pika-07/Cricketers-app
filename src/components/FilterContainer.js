@@ -6,6 +6,7 @@ const FilterContainer = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const sortBy = searchParams.get("sort");
   const filterBy = searchParams.get("filter");
+  const searchBy = searchParams.get("search");
   const [selectedOption, setSelectedOption] = useState(
     sortBy || SORT_OPTIONS[0].value
   );
@@ -13,6 +14,7 @@ const FilterContainer = () => {
   const [selectedFilterOption, setSelectedFilterOption] = useState(
     filterBy || FILTER_OPTIONS[0].value
   );
+  const [searchValue, setSearchValue] = useState(searchBy || "");
 
   const handleChange = (e) => {
     const query = e.target.value;
@@ -24,6 +26,12 @@ const FilterContainer = () => {
     const query = e.target.value;
     setSelectedFilterOption(query);
     setSearchParams({ filter: query });
+  };
+
+  const handleSearchChange = (e) => {
+    const query = e.target.value;
+    setSearchValue(query);
+    setSearchParams({ search: query });
   };
 
   useEffect(() => {}, [searchParams]);
@@ -55,6 +63,17 @@ const FilterContainer = () => {
               </option>
             ))}
           </select>
+        </div>
+
+        {/* Search  */}
+
+        <div>
+          <input
+            type="text"
+            value={searchValue}
+            onChange={handleSearchChange}
+            placeholder="Search By Name"
+          />
         </div>
       </div>
     </div>
