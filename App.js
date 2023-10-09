@@ -26,7 +26,7 @@ const appRouter = createBrowserRouter([
         element: <Body />,
       },
       {
-        path: "details",
+        path: "player",
         element: <PlayerDetails />,
       },
     ],

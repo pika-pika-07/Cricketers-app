@@ -3,7 +3,6 @@ import { getYearsBetweenDates } from "../utils/helper";
 
 const PlayerCard = ({ playerInfo = {} }) => {
   const { name, type, points, rank, dob, description } = playerInfo;
-
   const age = getYearsBetweenDates(dob);
 
   return (

@@ -16,6 +16,19 @@ export const getPlayers = (args) => {
       .filter((it) => (args?.type ? it.type === args?.type : true))
   );
 };
+export const getPlayerDetails = (playerId) => {
+  return Promise.resolve(
+    data
+      .sort((a, b) => {
+        return a.points === b.points ? 0 : b.points > a.points ? 1 : -1;
+      })
+      .map((it, index) => ({
+        ...it,
+        rank: index + 1,
+      }))
+      .find((player) => player.id === playerId)
+  );
+};
 
 export const getYearsBetweenDates = (input) => {
   if (!input) return 0;

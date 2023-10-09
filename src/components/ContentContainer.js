@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
-import useFetchPlayers from "../hooks/useFetchPlayers";
+import { Link, useSearchParams } from "react-router-dom";
 import PlayerCard from "./PlayerCard";
 import {
   getPlayers,
@@ -55,7 +54,12 @@ const ContentContainer = () => {
   return (
     <div className="flex p-6 m-6  flex-wrap">
       {players.map((player) => {
-        return <PlayerCard key={player.id} playerInfo={player} />;
+        return (
+          <Link key={player.id} to={`player?id=${player.id}`}>
+            {" "}
+            <PlayerCard playerInfo={player} />
+          </Link>
+        );
       })}
     </div>
   );
