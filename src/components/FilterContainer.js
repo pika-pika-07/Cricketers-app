@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { SORT_OPTIONS, FILTER_OPTIONS } from "../utils/constants";
+import { getObjectFromSearchParams } from "../utils/helper";
 
 const FilterContainer = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -19,22 +20,44 @@ const FilterContainer = () => {
   const handleChange = (e) => {
     const query = e.target.value;
     setSelectedOption(query.toLowerCase());
-    setSearchParams({ sort: query.toLowerCase() });
+    let params = getObjectFromSearchParams(searchParams);
+    let updatedParams = { ...params, sort: query.toLowerCase() };
+    setSearchParams(updatedParams);
+    // setSearchParams({ ...searchParams, sort: query.toLowerCase() });
   };
 
   const handleFilterChange = (e) => {
     const query = e.target.value;
     setSelectedFilterOption(query);
-    setSearchParams({ filter: query });
+    let params = getObjectFromSearchParams(searchParams);
+    let updatedParams = { ...params, filter: query };
+    setSearchParams(updatedParams);
   };
 
   const handleSearchChange = (e) => {
     const query = e.target.value;
     setSearchValue(query);
-    setSearchParams({ search: query });
+    let params = getObjectFromSearchParams(searchParams);
+    let updatedParams = { ...params, search: query === "" ? "all" : query };
+    setSearchParams(updatedParams);
+    // setSearchParams({ ...searchParams, search: query === "" ? "all" : query });
   };
 
-  useEffect(() => {}, [searchParams]);
+  const resetFilters = () => {
+    setSelectedFilterOption(FILTER_OPTIONS[0].value);
+    setSelectedOption(SORT_OPTIONS[0].value);
+    setSearchValue("");
+  };
+
+  useEffect(() => {
+    if (
+      !searchParams.has("filter") &&
+      !searchParams.has("sort") &&
+      !searchParams.has("search")
+    ) {
+      resetFilters();
+    }
+  }, [searchParams]);
 
   return (
     <div className="mx-5 p-5 bg-gray-300">

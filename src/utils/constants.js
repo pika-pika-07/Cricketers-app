@@ -2,7 +2,7 @@ export const SORT_OPTIONS = [
   {
     id: "_1",
     label: "Sort By",
-    value: "",
+    value: "all",
   },
   {
     id: "_2",
@@ -25,7 +25,7 @@ export const FILTER_OPTIONS = [
   {
     id: "_1",
     label: "Filter By",
-    value: "",
+    value: "all",
   },
   {
     id: "_2",

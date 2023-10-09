@@ -11,29 +11,35 @@ import {
 
 const ContentContainer = () => {
   const [players, setPlayers] = useState([]);
+  const [allPlayers, setAllPlayers] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const sortBy = searchParams.get("sort");
   const filterBy = searchParams.get("filter");
   const searchBy = searchParams.get("search");
 
   const filterPlayers = (players) => {
+    if (!sortBy && !filterBy && !searchBy && allPlayers.length > 0) {
+      setPlayers(allPlayers);
+    }
+
     if (sortBy) {
-      const newList = [...players];
+      const newList = [...allPlayers];
       const sortedPlayers = sortPlayers(newList, sortBy);
       setPlayers(sortedPlayers);
     }
     if (filterBy) {
       // const newList = [...players];
-      const filteredPlayers = filterPlayersByType(players, filterBy);
+      const filteredPlayers = filterPlayersByType(allPlayers, filterBy);
       setPlayers(filteredPlayers);
     }
     if (searchBy) {
-      const filteredPlayers = filterPlayersByName(players, searchBy);
+      const filteredPlayers = filterPlayersByName(allPlayers, searchBy);
       setPlayers(filteredPlayers);
     }
   };
   const fetchCricketers = async () => {
     const data = await getPlayers();
+    setAllPlayers(data);
     setPlayers(data);
     filterPlayers(data);
   };

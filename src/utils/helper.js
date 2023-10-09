@@ -34,6 +34,7 @@ export const getYearsBetweenDates = (input) => {
 };
 
 export const sortPlayers = (players, sortBy) => {
+  if (sortBy === "all") return players;
   const newArray = players.sort((a, b) => {
     if (sortBy === "name") {
       return a.name.localeCompare(b.name);
@@ -48,11 +49,23 @@ export const sortPlayers = (players, sortBy) => {
 };
 
 export const filterPlayersByType = (players, filterBy) => {
+  if (filterBy === "all") {
+    return players;
+  }
   const newArray = players.filter((player) => player.type === filterBy);
   return newArray;
 };
 
 export const filterPlayersByName = (players, filterBy) => {
+  if (filterBy === "all") return players;
   const newArray = players.filter((player) => player.name.includes(filterBy));
   return newArray;
+};
+
+export const getObjectFromSearchParams = (params = {}) => {
+  let obj = {};
+  params.forEach((key, value) => {
+    obj[value] = key;
+  });
+  return obj;
 };
