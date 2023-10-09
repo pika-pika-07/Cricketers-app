@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Outlet, RouterProvider } from "react-router";
-import { createBrowserRouter } from "react-router-dom";
+
+import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import Body from "./src/components/Body";
 import Header from "./src/components/Header";
 import PlayerDetails from "./src/components/PlayerDetails";

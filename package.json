@@ -2,9 +2,10 @@
   "name": "cricketers-app",
   "version": "1.0.0",
   "description": "Cricketer's app",
-  "main": "App.js",
+
   "scripts": {
-    "run": "npx parcel index.html",
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {

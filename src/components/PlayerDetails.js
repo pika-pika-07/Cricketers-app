@@ -1,4 +1,3 @@
-import { data } from "browserslist";
 import React, { useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import useFetchPlayerDetails from "../hooks/useFetchPlayerDetails";
