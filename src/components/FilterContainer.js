@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { SORT_OPTIONS, FILTER_OPTIONS } from "../utils/constants";
 import { getObjectFromSearchParams } from "../utils/helper";
 
@@ -23,7 +23,6 @@ const FilterContainer = () => {
     let params = getObjectFromSearchParams(searchParams);
     let updatedParams = { ...params, sort: query.toLowerCase() };
     setSearchParams(updatedParams);
-    // setSearchParams({ ...searchParams, sort: query.toLowerCase() });
   };
 
   const handleFilterChange = (e) => {
@@ -97,6 +96,12 @@ const FilterContainer = () => {
             onChange={handleSearchChange}
             placeholder="Search By Name"
           />
+        </div>
+
+        <div>
+          <Link to="/">
+            <button>Clear Filters</button>
+          </Link>
         </div>
       </div>
     </div>
