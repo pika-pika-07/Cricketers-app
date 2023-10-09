@@ -60,10 +60,14 @@ const FilterContainer = () => {
 
   return (
     <div className="mx-5 p-5 bg-gray-300">
-      <div className=" flex gap-4">
+      <div className=" flex gap-4 ">
         {/* Sort by  */}
         <div>
-          <select onChange={handleChange} value={selectedOption}>
+          <select
+            onChange={handleChange}
+            value={selectedOption}
+            className="rounded-lg"
+          >
             {SORT_OPTIONS.map((option) => (
               <option name={option.value} key={option.id} value={option.value}>
                 {option.label}
@@ -74,7 +78,11 @@ const FilterContainer = () => {
 
         {/* Filter by Type */}
         <div>
-          <select onChange={handleFilterChange} value={selectedFilterOption}>
+          <select
+            onChange={handleFilterChange}
+            value={selectedFilterOption}
+            className="rounded-lg"
+          >
             {FILTER_OPTIONS.map((option) => (
               <option
                 name={option.value}
@@ -95,12 +103,13 @@ const FilterContainer = () => {
             value={searchValue}
             onChange={handleSearchChange}
             placeholder="Search By Name"
+            className="px-2 rounded-lg"
           />
         </div>
 
         <div>
           <Link to="/">
-            <button>Clear Filters</button>
+            <button className="bg-white px-3 rounded-lg">Clear Filters</button>
           </Link>
         </div>
       </div>

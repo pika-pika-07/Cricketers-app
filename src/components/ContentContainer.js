@@ -46,7 +46,7 @@ const ContentContainer = () => {
     );
   return (
     <>
-      <div className="flex p-6 m-6  flex-wrap">
+      <div className="flex p-4 m-4  flex-wrap">
         {players.slice(0, playersToShow).map((player) => {
           return (
             <Link key={player.id} to={`player?id=${player.id}`}>
@@ -56,7 +56,7 @@ const ContentContainer = () => {
           );
         })}
       </div>
-      <div className="border border-black w-[7%] m-3 p-3 mx-14">
+      <div className="border border-black w-[7%] p-2 mx-11 rounded-lg">
         <button onClick={handleShowMore}>
           {playersToShow === players.length ? "Show Less" : "Show More"}
         </button>
