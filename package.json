@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/pika-pika-07/Cricketers-app#readme",
   "devDependencies": {
+    "@testing-library/react": "^14.0.0",
     "buffer": "^6.0.3",
     "events": "^3.3.0",
+    "jest": "^29.7.0",
     "os-browserify": "^0.3.0",
     "parcel": "^2.9.3",
     "path-browserify": "^1.0.1",
