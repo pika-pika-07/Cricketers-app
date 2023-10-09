@@ -14,3 +14,15 @@ test("should load Header Component", () => {
 
   expect(heading).toBeInTheDocument();
 });
+
+test("should load image inside header component", () => {
+  render(
+    <BrowserRouter>
+      <Header />
+    </BrowserRouter>
+  );
+
+  const image = screen.getByRole("img");
+
+  expect(image).toBeInTheDocument();
+});
