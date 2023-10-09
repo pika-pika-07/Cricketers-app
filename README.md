@@ -2,9 +2,11 @@
 A basic Cricketer's listing web app based on of Reactjs
 
 # Tech Stack
-- React.js
+This React app is been setup from scratch and it `does not use create-react-app`. Eerything from bundler to React testing Library has been integrated from scratch.
+Tech Stack includes
+- React.js Library
 - Parcel as a bundler
-- Tailwind Css for styling
+- Tailwind CSS for styling
 - React Testing Library for test cases
 
 # App hosted on netlify
