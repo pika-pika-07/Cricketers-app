@@ -43,7 +43,6 @@ export const getYearsBetweenDates = (input) => {
   const timeDiff = currentDate.getTime() - date.getTime();
   const days = timeDiff / (1000 * 3600 * 24);
   const yearsDiff = Math.abs(Math.round(days / 365));
-  console.log(yearsDiff);
   return yearsDiff;
 };
 
