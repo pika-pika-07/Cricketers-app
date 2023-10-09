@@ -56,8 +56,11 @@ const ContentContainer = () => {
           );
         })}
       </div>
-      <div className="border border-black w-[7%] p-2 mx-11 rounded-lg">
-        <button onClick={handleShowMore}>
+      <div
+        className="border border-black w-[7%] p-2 mx-9 rounded-lg text-center"
+        onClick={handleShowMore}
+      >
+        <button>
           {playersToShow === players.length ? "Show Less" : "Show More"}
         </button>
       </div>
