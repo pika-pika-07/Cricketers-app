@@ -1,15 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { RouterProvider } from "react-router";
+import { Outlet, RouterProvider } from "react-router";
 import { createBrowserRouter } from "react-router-dom";
 import Body from "./src/components/Body";
 import Header from "./src/components/Header";
+import PlayerDetails from "./src/components/PlayerDetails";
 
 const MainContainer = () => {
   return (
     <>
       <Header />
-      <Body />
+      <Outlet />
+      {/* <Body /> */}
     </>
   );
 };
@@ -18,6 +20,16 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <MainContainer />,
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "details",
+        element: <PlayerDetails />,
+      },
+    ],
   },
 ]);
 
