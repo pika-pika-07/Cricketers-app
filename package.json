@@ -4,6 +4,7 @@
   "description": "Cricketer's app",
   "main": "App.js",
   "scripts": {
+    "run": "npx parcel index.html",
     "test": "jest"
   },
   "repository": {
