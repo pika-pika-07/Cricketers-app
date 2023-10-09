@@ -8,6 +8,8 @@ const useFetchPlayerDetails = () => {
   const [playerDetails, setPlayerDetails] = useState([]);
 
   const fetchPlayerDetails = async () => {
+    // Redux can be used here to fetch data
+    // Not using redux as integrating redux is an expensive operation just for a single use case
     const data = await getPlayerDetails(playerId);
     setPlayerDetails(data);
   };

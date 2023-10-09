@@ -17,6 +17,7 @@ export const getPlayers = (args) => {
   );
 };
 export const getPlayerDetails = (playerId) => {
+  //Redux or context can be used to avoid it
   return Promise.resolve(
     data
       .sort((a, b) => {
