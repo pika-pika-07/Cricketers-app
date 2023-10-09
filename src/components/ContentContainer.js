@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import PlayerCard from "./PlayerCard";
-import {
-  getPlayers,
-  sortPlayers,
-  filterPlayersByType,
-  filterPlayersByName,
-} from "../utils/helper";
+import { getPlayers, applyFilters } from "../utils/helper";
 
 const ContentContainer = () => {
   const [players, setPlayers] = useState([]);
@@ -22,27 +17,15 @@ const ContentContainer = () => {
   }, []);
 
   useEffect(() => {
-    filterPlayers(players);
+    filterPlayers(allPlayers);
   }, [sortBy, filterBy, searchBy]);
 
-  const filterPlayers = (players) => {
-    if (!sortBy && !filterBy && !searchBy && allPlayers.length > 0) {
+  const filterPlayers = (playersData) => {
+    if (!sortBy && !filterBy && !searchBy && playersData.length > 0) {
       setPlayers(allPlayers);
     }
-
-    if (sortBy) {
-      const newList = [...allPlayers];
-      const sortedPlayers = sortPlayers(newList, sortBy);
-      setPlayers(sortedPlayers);
-    }
-    if (filterBy) {
-      const filteredPlayers = filterPlayersByType(allPlayers, filterBy);
-      setPlayers(filteredPlayers);
-    }
-    if (searchBy) {
-      const filteredPlayers = filterPlayersByName(allPlayers, searchBy);
-      setPlayers(filteredPlayers);
-    }
+    const newList = applyFilters(playersData, sortBy, filterBy, searchBy);
+    setPlayers(newList);
   };
   const fetchCricketers = async () => {
     const data = await getPlayers();
@@ -55,7 +38,12 @@ const ContentContainer = () => {
     setPlayersToShow(playersToShow < players.length ? players.length : 10);
   };
 
-  if (players.length === 0) return <div>Loading</div>;
+  if (players.length === 0)
+    return (
+      <div className="p-2 m-2 flex justify-center align-middle font-bold text-lg">
+        No results found
+      </div>
+    );
   return (
     <>
       <div className="flex p-6 m-6  flex-wrap">

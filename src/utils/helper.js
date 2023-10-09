@@ -47,39 +47,38 @@ export const getYearsBetweenDates = (input) => {
   return yearsDiff;
 };
 
-export const sortPlayers = (players, sortBy) => {
-  if (sortBy === "all") return players;
-  const newArray = players.sort((a, b) => {
-    if (sortBy === "name") {
-      return a.name.localeCompare(b.name);
-    } else if (sortBy === "rank") {
-      return a.points - b.points;
-    } else if (sortBy === "age") {
-      return b.dob - a.dob;
-    }
-  });
-
-  return newArray;
-};
-
-export const filterPlayersByType = (players, filterBy) => {
-  if (filterBy === "all") {
-    return players;
-  }
-  const newArray = players.filter((player) => player.type === filterBy);
-  return newArray;
-};
-
-export const filterPlayersByName = (players, filterBy) => {
-  if (filterBy === "all") return players;
-  const newArray = players.filter((player) => player.name.includes(filterBy));
-  return newArray;
-};
-
 export const getObjectFromSearchParams = (params = {}) => {
   let obj = {};
   params.forEach((key, value) => {
     obj[value] = key;
   });
   return obj;
+};
+
+export const applyFilters = (playersData, sortBy, filterBy, search) => {
+  let newList = [...playersData];
+  if (sortBy && sortBy !== "all") {
+    newList.sort((a, b) => {
+      if (sortBy === "name") {
+        return a.name.localeCompare(b.name);
+      } else if (sortBy === "rank") {
+        return a.points - b.points;
+      } else if (sortBy === "age") {
+        return b.dob - a.dob;
+      }
+    });
+  }
+
+  if (filterBy) {
+    if (filterBy !== "all") {
+      newList = newList.filter((player) => player.type === filterBy);
+    }
+  }
+  if (search) {
+    if (search !== "all") {
+      newList = newList.filter((player) => player.name.includes(search));
+    }
+  }
+
+  return newList;
 };
